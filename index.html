@@ -6,10 +6,7 @@
       name="viewport"
       content="initial-scale=1, maximum-scale=1,user-scalable=no"
     />
-    <title>
-      FeatureTable widget with editing enabled | Sample | ArcGIS API for
-      JavaScript 4.17
-    </title>
+    <title>Risk Register Table</title>
 
     <link
       rel="stylesheet"
@@ -63,13 +60,17 @@
 
         view.when(function () {
           // Carbon storage of trees in Warren Wilson College.
-    		  
-		      featureLayer = new FeatureLayer("https://nz-maps.wsp.com/server/rest/services/Hosted/service_60271ae7f3cd4301a83d4d42424fcec4/FeatureServer/0")
-		      
-		      featureTableLayer = new FeatureLayer("https://nz-maps.wsp.com/server/rest/services/Hosted/service_60271ae7f3cd4301a83d4d42424fcec4/FeatureServer/1")
+
+          featureLayer = new FeatureLayer(
+            "https://nz-maps.wsp.com/server/rest/services/Risk_Register/Risk_Register_Location_Risks/FeatureServer/0" 
+			
+          );
+
+          featureTableLayer = new FeatureLayer(
+            "https://nz-maps.wsp.com/server/rest/services/Risk_Register/Risk_Register_Location_Risks/FeatureServer/1"
+          );
           map.add(featureLayer);
-          
-          
+
           // Create the feature table
           const featureTable = new FeatureTable({
             view: view,
@@ -89,138 +90,137 @@
             // Autocast the FieldColumnConfigs
             fieldConfigs: [
               {
-                name: "risk_number1",
-                label: "risk_number1",
+                name: "risk_number",
+                label: "Risk Number",
                 editable: false,
                 direction: "asc"
               },
-              
+
               {
-               name: "risk_opportunity",
-               label: "Is this a risk or an opportunity?",
-               editable: true,
-               direction: "asc"
+                name: "risk_opportunity",
+                label: "Is this a risk or an opportunity?",
+                editable: true,
+                direction: "asc"
               },
-              
+
               {
-               name: "risk_opportunity_desc",
-               label: "Description",
-               editable: true,
-               direction: "asc"
+                name: "risk_opportunity_description",
+                label: "Description",
+                editable: true,
+                direction: "asc"
               },
-              
+
               {
-               name: "category",
-               label: "Category",
-               editable: true,
-               direction: "asc"
+                name: "category",
+                label: "Category",
+                editable: true,
+                direction: "asc"
               },
-			  
-			        {
-               name: "type",
-               label: "Type",
-               editable: true,
-               direction: "asc"
-              },
-			  
-			        {
-               name: "cause",
-               label: "Cause",
-               editable: true,
-               direction: "asc"
-              },
-			  
-			        {
-               name: "impact",
-               label: "Impact",
-               editable: true,
-               direction: "asc"
-              },
-			  
-			        {
-               name: "probability",
-               label: "Probability",
-               editable: true,
-               direction: "asc"
-              },
-              
+
               {
-               name: "consequence",
-               label: "Consequence",
-               editable: true,
-               direction: "asc"
+                name: "type",
+                label: "Type",
+                editable: false,
+                direction: "asc"
               },
-			  
-			        {
-               name: "exposure",
-               label: "Exposure",
-               editable: true,
-               direction: "asc"
-              },
-			  
-			        {
-               name: "mitigation",
-               label: "Mitigation",
-               editable: true,
-               direction: "asc"
-              },
-              
+
               {
-               name: "owner",
-               label: "Owner",
-               editable: false,
-               direction: "asc"
+                name: "cause",
+                label: "Cause",
+                editable: true,
+                direction: "asc"
               },
-              
+
               {
-               name: "residual_probability",
-               label: "Residual Probability",
-               editable: true,
-               direction: "asc"
+                name: "impact",
+                label: "Impact",
+                editable: true,
+                direction: "asc"
               },
-              
+
               {
-               name: "residual_impact",
-               label: "Residual Impact",
-               editable: true,
-               direction: "asc"
+                name: "probability",
+                label: "Probability",
+                editable: true,
+                direction: "asc"
               },
-              
+
               {
-               name: "residual_exposure",
-               label: "Residual Exposure",
-               editable: true,
-               direction: "asc"
+                name: "consequence",
+                label: "Consequence",
+                editable: true,
+                direction: "asc"
               },
-              
+
               {
-               name: "contingency_basis",
-               label: "Contingency Basis",
-               editable: true,
-               direction: "asc"
+                name: "exposure",
+                label: "Exposure",
+                editable: false,
+                direction: "asc"
               },
-              
+
               {
-               name: "contingency_buildup",
-               label: "Contingency Build Up",
-               editable: true,
-               direction: "asc"
+                name: "mitigation",
+                label: "Mitigation",
+                editable: true,
+                direction: "asc"
               },
-              
+
               {
-               name: "residual_probability_weighting",
-               label: "Residual Probability Weighting",
-               editable: true,
-               direction: "asc"
+                name: "owner",
+                label: "Owner",
+                editable: false,
+                direction: "asc"
               },
-              
+
               {
-               name: "residual_value",
-               label: "Residual Value",
-               editable: true,
-               direction: "asc"
+                name: "residual_probability",
+                label: "Residual Probability",
+                editable: true,
+                direction: "asc"
               },
-              
+
+              {
+                name: "residual_impact",
+                label: "Residual Impact",
+                editable: true,
+                direction: "asc"
+              },
+
+              {
+                name: "residual_exposure",
+                label: "Residual Exposure",
+                editable: false,
+                direction: "asc"
+              },
+
+              {
+                name: "contingency_basis",
+                label: "Contingency Basis",
+                editable: true,
+                direction: "asc"
+              },
+
+              {
+                name: "contingency_buildup",
+                label: "Contingency Build Up",
+                editable: true,
+                direction: "asc"
+              },
+
+              {
+                name: "residual_probability_weighting",
+                label: "Residual Probability Weighting",
+                editable: true,
+                direction: "asc"
+              },
+
+              {
+                name: "residual_value",
+                label: "Residual Value",
+                editable: true,
+                direction: "asc"
+              }
             ],
             container: document.getElementById("tableDiv")
           });
@@ -278,5 +278,3 @@
     </div>
   </body>
 </html>
-
-
